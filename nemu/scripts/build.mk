@@ -55,3 +55,8 @@ $(BINARY): $(OBJS) $(ARCHIVES)
 
 clean:
 	-rm -rf $(BUILD_DIR)
+
+COUNT_L := $(shell  find . -name "*.h" -or -name "*.c" | xargs grep -Ev "^$$" | wc -l)
+
+count:
+	@echo $(COUNT_L) lines in nemu
